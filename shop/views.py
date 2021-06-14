@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from shop.models import Men, Women, upload, Cart, Order, update
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
  
@@ -9,7 +11,8 @@ from shop.models import Men, Women, upload, Cart, Order, update
 def home(request):
     cart_items = Cart.objects.all()
     count = len(cart_items)
-    return render(request, 'shop/home.html', {'count': count})
+   
+    return render(request, 'shop/home.html', {'count': count, 'user': request.user})
 
 
 def search(request):
@@ -157,3 +160,42 @@ def track_info(request, o_id):
     context = {'t': t, 'trac': trac, 'count': count}
 
     return render(request, 'shop/track_info.html', context)
+
+
+def handlesignup(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        email = request.POST['email']
+        pass1 = request.POST['pass1']
+        pass2 = request.POST['pass2']
+        if User.objects.filter(username = username).first():
+            pass
+            return redirect('s')
+           
+        my = User.objects.create_user(username, email, pass1)
+        my.first_name = fname
+        my.last_name = lname
+        my.save()
+        return redirect('s')
+    return HttpResponse("404 Not Found")
+
+def handlelogin(request):
+    if request.method == "POST":
+        loginuser = request.POST['loginuser']
+        loginpassword = request.POST['loginpassword']
+        user = authenticate(username = loginuser, password = loginpassword)
+        if user is not None:
+            print(user.password)
+            login(request,user)
+            print("You are succesfully logged in!")
+            return redirect('index')
+        else:
+            HttpResponse('Invalid credentails')
+
+    return HttpResponse("404 Invalid credentials")
+
+def handlelogout(request):
+        logout(request)
+        return redirect('s')

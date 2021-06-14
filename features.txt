@@ -1,0 +1,12 @@
+Team Invisibles presents EcomX: Our own shopping website.
+EcomX is a demo website with some sound features.
+The catchy EcomX.home throws a view on how our store looks!. There are plenty of options to surf with and shop, also this page consists of muted options which however can be enabled later!
+EcomX navbar have access to some of the key features named Store, cart, MyOrders and fully functional Search bar
+Now, we have a store where products come from the backend, you choose a product and now you have options of "Adding it to cart" and "Checkout(Direct buy)" with facebook plugins avalibale online.
+You checkout, please provide us the location and we will know in the backend and server you accordingly.
+COD is our only convenience!
+You can view the cart, buy things and delete them when needed.
+Apart from this we even have a tracker to track the items and keep you updated.
+
+
+  
