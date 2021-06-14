@@ -49,8 +49,14 @@
 
   <div class="container my-4">
     {% for order in orders %}
-    <div class="row featurette d-flex justify-content-center align-items-center">
-      <div class="col-md-9 order-md-2 ">
+      <div class="row featurette d-flex justify-content-center align-items-center">
+    
+      <div class="col-md-3 text-center">
+        {% if order.ipic %}
+        <img width="192" height="260" src="{{order.ipic.url}}" alt="">
+        {% endif %}
+      </div>
+      <div class="col-md-9 ">
         <h2 class="featurette-heading">{{order.iname}} <span class="text-muted">Cart Items</span></h2>
         <p class="lead">{{order.idesc}}</p>
         <p><strong><em>{{order.iprice}}</em></strong></p>
@@ -63,11 +69,6 @@
           <input type="hidden" name="item_name" value="{{order.iname}}">
           <button type="submit" class="btn btn-primary">Delete</button>
         </form>
-      </div>
-      <div class="col-md-3 order-md-1  text-center">
-        {% if order.ipic %}
-        <img width="192" height="260" src="{{order.ipic.url}}" alt="">
-        {% endif %}
       </div>
     </div>
 

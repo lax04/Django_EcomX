@@ -68,6 +68,11 @@
   <div class="container my-4">
     {% for item in cart %}
     <div class="row featurette ">
+      <div class="col-md-3 order-md-1  text-center">
+        {% if item.ipic %}
+        <img width="192" height="260" src="{{item.ipic.url}}" alt="">
+        {% endif %}
+      </div>
       <div class="col-md-9 order-md-2 ">
         <h2 class="featurette-heading">{{item.iname}} <span class="text-muted">Cart Items</span></h2>
         <p class="lead">{{item.idesc}}</p>
@@ -80,11 +85,7 @@
     
         </form>
       </div>
-      <div class="col-md-3 order-md-1  text-center">
-        {% if item.ipic %}
-        <img width="192" height="260" src="{{item.ipic.url}}" alt="">
-        {% endif %}
-      </div>
+      
     </div>
 
     
