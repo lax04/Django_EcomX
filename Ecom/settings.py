@@ -25,7 +25,7 @@ SECRET_KEY = '6#_1z*4%waf$$xo5+1-rh1bvch-n@)%dk4)msoeuf5jj#tb8(g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'ecomm-x.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1',]
 
 
 # Application definition
@@ -125,7 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 import os
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
