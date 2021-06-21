@@ -68,3 +68,12 @@ class update(models.Model):
     def __str__(self):
          return self.update_desc
        
+class returns(models.Model):
+    return_id = models.AutoField(primary_key=True)
+    REASONS = (
+        ('not good','not good'),
+        ('other product','not product'),
+        
+    )
+    reasons = models.CharField(max_length=100, choices=REASONS)
+    
